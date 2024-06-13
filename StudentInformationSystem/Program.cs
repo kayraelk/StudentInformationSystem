@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StudentInformationSystem.Data;
+using StudentInformationSystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,11 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IInstructorService, InstructorService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IUnitService, UnitService>();
+builder.Services.AddScoped<ICourseCodeService, CourseCodeService>();
 
 var app = builder.Build();
 

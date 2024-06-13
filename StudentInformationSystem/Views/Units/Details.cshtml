@@ -1,13 +1,13 @@
-﻿@model StudentInformationSystem.Models.Instructor
+﻿@model StudentInformationSystem.Models.Unit
 
 @{
-    ViewData["Title"] = "Instructor Details";
+    ViewData["Title"] = "Unit Details";
 }
 
-<h1>Instructor Details</h1>
+<h1>Unit Details</h1>
 
 <div>
-    <h4>Instructor</h4>
+    <h4>Unit</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -17,16 +17,16 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.BirthDate)
+            @Html.DisplayNameFor(model => model.ParentUnit.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.BirthDate)
+            @Html.DisplayFor(model => model.ParentUnit.Name)
         </dd>
     </dl>
 </div>

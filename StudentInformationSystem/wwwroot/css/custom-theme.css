@@ -1,0 +1,81 @@
+﻿/* Define your custom theme colors */
+:root {
+    --dark-blue: #1a237e;
+    --white: #ffffff;
+    --blue: #2196f3;
+    --red: #f44336;
+}
+
+/* Body styling */
+body {
+    background-color: var(--white);
+    color: var(--dark-blue);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+    .navbar a {
+        color: var(--white);
+    }
+
+        .navbar a:hover {
+            color: var(--blue);
+        }
+
+/* Sidebar styling */
+.sidebar {
+    background-color: var(--dark-blue); /* Change background to dark blue */
+    color: var(--white);
+    height: 100vh;
+    padding-top: 20px;
+}
+
+    .sidebar .nav-link {
+        color: var(--white);
+    }
+
+        .sidebar .nav-link:hover {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+
+/* Button styling */
+.btn-primary {
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+    .btn-primary:hover {
+        background-color: var(--dark-blue);
+        border-color: var(--dark-blue);
+    }
+
+.btn-danger {
+    background-color: var(--red);
+    border-color: var(--red);
+}
+
+    .btn-danger:hover {
+        background-color: darken(var(--red), 10%);
+        border-color: darken(var(--red), 10%);
+    }
+
+/* Table styling */
+.table {
+    color: var(--dark-blue);
+}
+
+    .table thead {
+        background-color: var(--dark-blue);
+        color: var(--white);
+    }
+
+    .table tbody tr:hover {
+        background-color: var(--blue);
+        color: var(--white);
+    }

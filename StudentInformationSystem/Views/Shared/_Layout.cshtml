@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/StudentInformationSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/custom-theme.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
@@ -31,10 +33,28 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-3 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Instructors" asp-action="Index">Instructors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Units" asp-action="Index">Units</a>
+                    </li>
+                </ul>
+            </aside>
+            <main role="main" class="col-9">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
