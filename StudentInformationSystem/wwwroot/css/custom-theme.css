@@ -1,21 +1,23 @@
 ﻿/* Define your custom theme colors */
 :root {
-    --dark-blue: #1a237e;
+    --primary-color: #3498db; /* Bright Blue */
+    --secondary-color: #2ecc71; /* Bright Green */
+    --accent-color: #e74c3c; /* Bright Red */
+    --background-color: #ecf0f1; /* Light Gray */
+    --text-color: #2c3e50; /* Dark Gray */
     --white: #ffffff;
-    --blue: #2196f3;
-    --red: #f44336;
 }
 
 /* Body styling */
 body {
-    background-color: var(--white);
-    color: var(--dark-blue);
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-family: 'Arial', sans-serif;
 }
 
 /* Navbar styling */
 .navbar {
-    background-color: var(--dark-blue);
+    background-color: var(--primary-color);
     color: var(--white);
 }
 
@@ -24,12 +26,12 @@ body {
     }
 
         .navbar a:hover {
-            color: var(--blue);
+            color: var(--secondary-color);
         }
 
 /* Sidebar styling */
 .sidebar {
-    background-color: var(--dark-blue); /* Change background to dark blue */
+    background-color: var(--primary-color); /* Change background to primary color */
     color: var(--white);
     height: 100vh;
     padding-top: 20px;
@@ -40,42 +42,42 @@ body {
     }
 
         .sidebar .nav-link:hover {
-            background-color: var(--blue);
+            background-color: var(--secondary-color);
             color: var(--white);
         }
 
 /* Button styling */
 .btn-primary {
-    background-color: var(--blue);
-    border-color: var(--blue);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
     .btn-primary:hover {
-        background-color: var(--dark-blue);
-        border-color: var(--dark-blue);
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
     }
 
 .btn-danger {
-    background-color: var(--red);
-    border-color: var(--red);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
     .btn-danger:hover {
-        background-color: darken(var(--red), 10%);
-        border-color: darken(var(--red), 10%);
+        background-color: darken(var(--accent-color), 10%);
+        border-color: darken(var(--accent-color), 10%);
     }
 
 /* Table styling */
 .table {
-    color: var(--dark-blue);
+    color: var(--text-color);
 }
 
     .table thead {
-        background-color: var(--dark-blue);
+        background-color: var(--primary-color);
         color: var(--white);
     }
 
     .table tbody tr:hover {
-        background-color: var(--blue);
+        background-color: var(--secondary-color);
         color: var(--white);
     }
