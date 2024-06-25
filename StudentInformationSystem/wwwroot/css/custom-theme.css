@@ -21,13 +21,13 @@ body {
     color: var(--white);
 }
 
-    .navbar a {
-        color: var(--white);
-    }
+.navbar a {
+    color: var(--white);
+}
 
-        .navbar a:hover {
-            color: var(--secondary-color);
-        }
+.navbar a:hover {
+    color: var(--secondary-color);
+}
 
 /* Sidebar styling */
 .sidebar {
@@ -37,14 +37,14 @@ body {
     padding-top: 20px;
 }
 
-    .sidebar .nav-link {
-        color: var(--white);
-    }
+.sidebar .nav-link {
+    color: var(--white);
+}
 
-        .sidebar .nav-link:hover {
-            background-color: var(--secondary-color);
-            color: var(--white);
-        }
+.sidebar .nav-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
 
 /* Button styling */
 .btn-primary {
@@ -52,32 +52,32 @@ body {
     border-color: var(--primary-color);
 }
 
-    .btn-primary:hover {
-        background-color: var(--secondary-color);
-        border-color: var(--secondary-color);
-    }
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
 
 .btn-danger {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
 }
 
-    .btn-danger:hover {
-        background-color: darken(var(--accent-color), 10%);
-        border-color: darken(var(--accent-color), 10%);
-    }
+.btn-danger:hover {
+    background-color: darken(var(--accent-color), 10%);
+    border-color: darken(var(--accent-color), 10%);
+}
 
 /* Table styling */
 .table {
     color: var(--text-color);
 }
 
-    .table thead {
-        background-color: var(--primary-color);
-        color: var(--white);
-    }
+.table thead {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
 
-    .table tbody tr:hover {
-        background-color: var(--secondary-color);
-        color: var(--white);
-    }
+.table tbody tr:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
