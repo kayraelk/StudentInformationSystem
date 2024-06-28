@@ -1,10 +1,13 @@
-﻿namespace StudentInformationSystem.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StudentInformationSystem.Models
 {
     public class Instructor
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
 

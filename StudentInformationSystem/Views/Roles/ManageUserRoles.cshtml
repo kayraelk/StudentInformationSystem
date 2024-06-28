@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StudentInformationSystem.Models.UserRolesViewModel>
+
+@{
+    ViewData["Title"] = "Manage User Roles";
+}
+
+<h1>Manage User Roles</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@string.Join(", ", user.Roles)</td>
+                <td>
+                    <form asp-action="ManageUserRoles" method="post">
+                        <input type="hidden" name="userId" value="@user.UserId" />
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="roles" value="@string.Join(", ", user.Roles)" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Roles</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

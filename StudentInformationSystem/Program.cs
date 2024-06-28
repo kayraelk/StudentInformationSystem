@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StudentInformationSystem;
+using StudentInformationSystem.Authorization;
 using StudentInformationSystem.Data;
 using StudentInformationSystem.Services;
 
@@ -12,19 +15,34 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+        .AddRoles<IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>();
+
+// Add Authorization services
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ManageRoles", policy => policy.Requirements.Add(new PermissionRequirement("ManageRoles")));
+    // Add more policies as needed
+});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IInstructorService, InstructorService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IUnitService, UnitService>();
 builder.Services.AddScoped<ICourseCodeService, CourseCodeService>();
+builder.Services.AddScoped<IAuthorizationHandler, PermissionHandler>();// Ensure RoleManager and UserManager are registered
+builder.Services.AddScoped<RoleManager<IdentityRole>>();
+builder.Services.AddScoped<UserManager<IdentityUser>>();
+builder.Services.AddScoped<PasswordCheckService>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
     app.UseMigrationsEndPoint();
 }
 else
@@ -38,8 +56,17 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication(); // Add this line to enable authentication
 app.UseAuthorization();
+
+// Ensure roles are created and admin user is assigned
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var adminEmail = "admin@gmail.com"; // Replace with your admin email
+    var adminPassword = "1q2w3E*"; // Replace with your admin password
+    RoleInitializer.Initialize(services, adminEmail, adminPassword).Wait();
+}
 
 app.MapControllerRoute(
     name: "default",

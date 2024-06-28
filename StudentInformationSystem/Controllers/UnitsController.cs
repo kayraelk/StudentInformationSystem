@@ -39,6 +39,11 @@ namespace StudentInformationSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Unit unit)
         {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                // Inspect 'errors' to see what is wrong
+            }
             if (ModelState.IsValid)
             {
                 await _unitService.AddUnitAsync(unit);
